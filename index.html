@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#041a33">
+<meta name="description" content="Turbo Tide - a free arcade speedboat racing game that runs in your browser.">
+<title>TURBO TIDE - Arcade Speedboat Racing</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #020a14; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center;
+         touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+  canvas { display: block; background: #041a33; }
+  #touch { position: fixed; inset: 0; pointer-events: none; display: none; }
+  body.touch.racing #touch { display: block; }
+  .tb { position: absolute; bottom: calc(18px + env(safe-area-inset-bottom)); width: 92px; height: 92px;
+        border-radius: 50%; border: 3px solid rgba(255,255,255,.75); background: rgba(10,30,60,.45);
+        color: #fff; font: italic 900 30px Impact, "Arial Black", sans-serif; pointer-events: auto;
+        display: flex; align-items: center; justify-content: center; }
+  .tb.on { background: rgba(255,200,40,.75); color: #201000; }
+  #tl { left: calc(18px + env(safe-area-inset-left)); }
+  #tr { left: calc(126px + env(safe-area-inset-left)); }
+  #tboost { right: calc(18px + env(safe-area-inset-right)); width: 112px; height: 112px; font-size: 22px;
+            border-color: #ffd23c; }
+  #tbrake { right: calc(146px + env(safe-area-inset-right)); width: 72px; height: 72px; font-size: 15px; }
+</style>
+</head>
+<body>
+<canvas id="game" width="1280" height="720"></canvas>
+<div id="touch">
+  <div class="tb" id="tl" data-k="left">&#9664;</div>
+  <div class="tb" id="tr" data-k="right">&#9654;</div>
+  <div class="tb" id="tbrake" data-k="down">BRAKE</div>
+  <div class="tb" id="tboost" data-k="boost">BOOST</div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
